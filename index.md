@@ -26,7 +26,7 @@ Syntax highlighted code block
 [Link](url) and ![Image](src)
 ```
 
-
+![Image](https://cloud.githubusercontent.com/assets/25128961/23504906/38bd2af2-fef6-11e6-84b0-e834a54dee25.jpg)
 
 For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
 
