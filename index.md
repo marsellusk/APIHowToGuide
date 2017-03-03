@@ -1,14 +1,18 @@
 ## A How to Guide for Steam Web API
 
+Link to the [API](https://developer.valvesoftware.com/wiki/Steam_Web_API)
+
 ### What is Steam API and What do you Need
 
-Steam is currently the most popular place for gamers to buy and own games with millions of users. Because of this, there are many websites out there that utilize Steam and their database to further improve their own website. They do this by utilizing Steam’s web API. There are a few requirements that are needed before any user can use Steam’s API. First a steam account will be needed. Second an API key from steam itself. Third access to a coding language that can handle a XMLHTTPrequest. For the purpose of this guide Javascript will be used however, there are other languages that can do this. The concepts should be the same in the other languages yet with different syntax. 
+Steam is currently the most popular place for gamers to buy and own games with millions of users. Because of this, there are many websites out there that utilize Steam and their database to further improve their own website. They do this by utilizing Steam’s web API. There are a few requirements that are needed before any user can use Steam’s API. First a steam account will be needed. Second an API key from Steam itself. Third access to a coding language that can handle a XMLHTTPrequest. For the purpose of this guide Javascript will be used however, there are other languages that can do this. The concepts should be the same in the other languages yet with different syntax. 
 
 ### Implications what is it used for
 
 The steam web API offers information either about a specific app, a specific video game, or a specific steam account. This means that whatever your website is about using the Steam API must deal with one of these 3 things. One way the Steam API can be used is stats. Say you have a website that is about a specific game. Using the Steam API you can provide users with access global stats for this game may it be specific items or maps. Then you can also provide the user with the stats for the game unique to a steam profile. This would let users compare themselves to friends and other players in that specific game. This is just a basic example of how Steam can be used.
 
-### intro to the guide
+### Introduction to the Guide
+
+The Steam API does a very good job of showing what is neccessary to access their API and the data you will get back by doing so. However, Steam doesn't show how this should look when implementing the API into code. They do provide links to implementations of their API at the bottom of the page, but they can either be confusing or hard to traverse through. This guide will hopefully show how to use the Steam Web API in code. This way you can use it on your own
 
 ### Getting Started With Javascript
 	
@@ -25,7 +29,7 @@ Some of the options don’t require an API key. For these we just send the domai
 ```
 ### With API Key
 
-The others require the API  key to be at the beginning of the query string then the arguments. If you don’t know where to get the Steam API key it can be found [here](https://steamcommunity.com/login/home/?goto=%2Fdev%2Fapikey) or at the top of the Steam API page.For security reasons you should never give your personal API key as public information. An example of the final domain using player summaries should look like this with the Xs substituted with your personal key:
+The others require the API  key to be at the beginning of the query string then the arguments. If you don’t know where to get the Steam API key it can be found [here](https://steamcommunity.com/login/home/?goto=%2Fdev%2Fapikey) or at the top of the Steam API page. For security reasons you should never give your personal API key as public information. An example of the final domain using player summaries should look like this with the Xs substituted with your personal key:
 
 ```markdown
 
@@ -155,42 +159,6 @@ What this code is doing is accessing the achievement object and going through it
 
 ### Outro
 
-With this use of the Steam API should be fairly easy.
-
-You can use the [editor on GitHub](https://github.com/marsellusk/HowToGuide/edit/master/index.md) to maintain and preview the content for your website in Markdown files.
-
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
-
-### Markdown
-
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
-
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
+With this use of the Steam API should be fairly easy. Most APIs function in a similar fasion meaning this logic can be applied to many other APIs out there. Again the Steam API is perfect for use when making a website about specific games and players that play the games. 
 
 
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/marsellusk/HowToGuide/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
