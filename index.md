@@ -15,9 +15,11 @@ The steam web API offers information either about a specific app, a specific vid
 -with api
 
 Some of the options don’t require an API key. For these we just send the domain of the the Steam API plus the arguments in the query string.. An example of this can be seen by trying to get the achievements for an app:
+ ```markdown
  
  http://api.steampowered.com/ISteamUserStats/GetGlobalAchievementPercentagesForApp/v0002/?gameid=440&format=xml
 
+```
 -without api
 
 The others require the API  key to be at the beginning of the query string then the arguments. If you don’t know where to get the Steam API key it can be found here or at the top of the Steam API page.For security reasons you should never give your personal API key as public information. An example of the final domain using player summaries should look like this with the Xs substituted with your personal key:
