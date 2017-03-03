@@ -15,7 +15,7 @@ The steam web API offers information either about a specific app, a specific vid
 -with api
 
 Some of the options don’t require an API key. For these we just send the domain of the the Steam API plus the arguments in the query string.. An example of this can be seen by trying to get the achievements for an app:
- ```markdown
+```markdown
  
  http://api.steampowered.com/ISteamUserStats/GetGlobalAchievementPercentagesForApp/v0002/?gameid=440&format=xml
 
@@ -98,7 +98,7 @@ Syntax highlighted code block
 **Bold** and _Italic_ and `Code` text
 
 [Link](url) and ![Image](src)
-```
+``
 
 
 
