@@ -1,6 +1,6 @@
-## Welcome to GitHub Pa
+## A How to Guide for Steam Web API
 
-### what is steam api and what do you need
+### What is Steam API and What do you Need
 
 Steam is currently the most popular place for gamers to buy and own games with millions of users. Because of this, there are many websites out there that utilize Steam and their database to further improve their own website. They do this by utilizing Steam’s web API. There are a few requirements that are needed before any user can use Steam’s API. First a steam account will be needed. Second an API key from steam itself. Third access to a coding language that can handle a XMLHTTPrequest. For the purpose of this guide Javascript will be used however, there are other languages that can do this. The concepts should be the same in the other languages yet with different syntax. 
 
@@ -14,17 +14,18 @@ The steam web API offers information either about a specific app, a specific vid
 	
   To start the request we must let the javascript know by setting a variable equal to the XML request. After this the request will then be opened. First we notify what type of request we are sending. Since we are only receiving data and not sending this will be a GET request. If we are sending data to the API to receive something back we would then do a POST request. Next we send the domain of the Steam Web API.
 	
-### without api key
+### Without API Key
 
 Some of the options don’t require an API key. For these we just send the domain of the the Steam API plus the arguments in the query string.. An example of this can be seen by trying to get the achievements for an app:
+
 ```markdown
  
  http://api.steampowered.com/ISteamUserStats/GetGlobalAchievementPercentagesForApp/v0002/?gameid=440&format=xml
 
 ```
-### with api key
+### With API Key
 
-The others require the API  key to be at the beginning of the query string then the arguments. If you don’t know where to get the Steam API key it can be found here or at the top of the Steam API page.For security reasons you should never give your personal API key as public information. An example of the final domain using player summaries should look like this with the Xs substituted with your personal key:
+The others require the API  key to be at the beginning of the query string then the arguments. If you don’t know where to get the Steam API key it can be found [here](https://steamcommunity.com/login/home/?goto=%2Fdev%2Fapikey) or at the top of the Steam API page.For security reasons you should never give your personal API key as public information. An example of the final domain using player summaries should look like this with the Xs substituted with your personal key:
 
 ```markdown
 
@@ -102,7 +103,11 @@ JSON.parse(req.responseText)
 
 Here is what happens when I log the response to the console from the asynchronous code above. Unfortunately because Chrome doesn’t like Cross-Origin Requests when there is no server involved I was forced to use Internet Explorer. However Internet Explorer console isn't able to deal with objects and just displays them as undefined. For the purpose of this guide I displayed the results without parsing it which means it will be displayed as HTML code.(Instructor side note: I would have switched to an API that worked but it was too close to the deadline to do so.) The results for showing achievements percentages in the app look like this:
 
+
+
 ![Picture](https://cloud.githubusercontent.com/assets/25128961/23541487/7875a6aa-ff9c-11e6-94c2-eb4087a3ceb6.png)
+
+
 
 In order to show what it should look like in the console I was use the help of a weather API that is the same exact concept except with weather using this code:
 
@@ -116,7 +121,11 @@ var req = new XMLHttpRequest();
 ```
 The result in Chrome console  should then look like this displaying the objects and their properties:
 
+
+
 ![Picture](https://cloud.githubusercontent.com/assets/25128961/23541620/6d5e05c2-ff9d-11e6-9f73-75f780b000d0.png)
+
+
 
 This is good but we still would like to display the data to the html page so the user can see it. This can be done by making the response equal to a variable then accessing the properties through that variable. This can be shown by this code here for the weather API
 ```markdown
@@ -126,7 +135,11 @@ This is good but we still would like to display the data to the html page so the
 ```
 Here is how it looks when I display it to the page for the user to see:
 
+
+
 ![Picture](https://cloud.githubusercontent.com/assets/25128961/23541671/b6cf204c-ff9d-11e6-92c2-c9e584710201.png)
+
+
 
 Here is the code that would do the same thing but is applied to the Steam Web API:
 ```markdown
