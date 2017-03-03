@@ -38,8 +38,25 @@ Code here
 
 If there is no error in interacting with the API the code will enter the function and do what you set it to do. In this case I just request it to display the data received in the console. Because we are only receiving data and not sending any to the api req.send() will be set to null. Although asynchronous is better for use sometimes it can cause frustrating errors that are hard to debug. If you run into trouble you can try doing a synchronous request just to make sure you are able to interact with the Steam API. That will look like this:
 
-Code here
+```markdown
 
+`var req = new XMLHttpRequest();
+  
+req.open('GET', 'http://api.steampowered.com/ISteamUserStats/GetGlobalAchievementPercentagesForApp/v0002/?gameid=440&format=xml', true);
+   
+    req.addEventListener('load',function(){
+      if(req.status >= 200 && req.status < 400){
+	  console.log(JSON.parse(req.responseText))
+    } else {
+        console.log("Error in network request: " + req.statusText);
+      }});
+    
+    req.send(null);
+	
+    event.preventDefault()`
+
+
+```
 
 One last thing to note for the code is that the API key and the query string arguments don't have to be hard coded in. In fact it is better if they are not sometimes because this allows the request to the API server to change without having to rewrite the code all over again. This can be done by setting the key and arguments to variables. This is shown here:
 
