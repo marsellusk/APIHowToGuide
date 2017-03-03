@@ -34,13 +34,9 @@ http://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002/?key=XXXXXXXXXXX
 
 It should be noted that different sections of the Steam API use v0001 or v0002 in the link. Pay attention to which one is needed because it can cause errors. The final thing to put in the open request is true or false. True is for asynchronous  request an false is for synchronous request. It is better to use asynchronous request in case there is an error in receiving the data from the Steam API. The final code to produce an output should look like this:
 
-Code here
-
-If there is no error in interacting with the API the code will enter the function and do what you set it to do. In this case I just request it to display the data received in the console. Because we are only receiving data and not sending any to the api req.send() will be set to null. Although asynchronous is better for use sometimes it can cause frustrating errors that are hard to debug. If you run into trouble you can try doing a synchronous request just to make sure you are able to interact with the Steam API. That will look like this:
-
 ```markdown
 
-`Code var req = new XMLHttpRequest();`
+ var req = new XMLHttpRequest();
   
 req.open('GET', 'http://api.steampowered.com/ISteamUserStats/GetGlobalAchievementPercentagesForApp/v0002/?gameid=440&format=xml', true);
    
@@ -58,13 +54,51 @@ req.open('GET', 'http://api.steampowered.com/ISteamUserStats/GetGlobalAchievemen
 
 ```
 
+If there is no error in interacting with the API the code will enter the function and do what you set it to do. In this case I just request it to display the data received in the console. Because we are only receiving data and not sending any to the api req.send() will be set to null. Although asynchronous is better for use sometimes it can cause frustrating errors that are hard to debug. If you run into trouble you can try doing a synchronous request just to make sure you are able to interact with the Steam API. That will look like this:
+
+```markdown
+
+      var req = new XMLHttpRequest();
+      req.open("GET", 'http://api.steampowered.com/ISteamUserStats/GetGlobalAchievementPercentagesForApp/v0002/?gameid=440&format=xml', false);
+      req.send(null);
+      console.log(JSON.parse(req.responseText));
+
+
+```
+
 One last thing to note for the code is that the API key and the query string arguments don't have to be hard coded in. In fact it is better if they are not sometimes because this allows the request to the API server to change without having to rewrite the code all over again. This can be done by setting the key and arguments to variables. This is shown here:
+
+```markdown
+var APIkey = XXXXXXXXXXXXXXXXXXXXXXX;
+var steamID = (steam ID searched by user);
+
+var req = new XMLHttpRequest();
+  
+req.open('GET', 'http://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002/?key=' + APIkey + '&steamids=' + steamID, true);
+   
+    req.addEventListener('load',function(){
+      if(req.status >= 200 && req.status < 400){
+	  console.log(JSON.parse(req.responseText))
+    } else {
+        console.log("Error in network request: " + req.statusText);
+      }});
+    
+    req.send(null);
+	
+    event.preventDefault()
+
+
+```
 
 ### How to Handle the Output
 	
-Now that you know how to make a request we need to be able to deal with the response from the Steam server.this is easily done by using the line of code:
+Now that you know how to make a request we need to be able to deal with the response from the Steam server. This is easily done by using the line of code:
 
-Code here.
+```markdown
+
+JSON.parse(req.responseText)
+
+```
 
 Here is what happens when I log the response to the console from the asynchronous code above. Unfortunately because Chrome doesn’t like Cross-Origin Requests when there is no server involved I was forced to use Internet Explorer. However Internet Explorer console isn't able to deal with objects and just displays them as undefined. For the purpose of this guide I displayed the results without parsing it which means it will be displayed as HTML code.(Instructor side note: I would have switched to an API that worked but it was too close to the deadline to do so.) The results for showing achievements percentages in the app look like this:
 
@@ -72,25 +106,37 @@ Picture.
 
 In order to show what it should look like in the console I was use the help of a weather API that is the same exact concept except with weather using this code:
 
-Code here
+```markdown
 
+var req = new XMLHttpRequest();
+      req.open("GET", "http://api.openweathermap.org/data/2.5/weather?q=Corvallis,or&appid=XXXXXXXXXXXXXXXXXX", false);
+      req.send(null);
+      console.log(JSON.parse(req.responseText));
+
+```
 The result in Chrome console  should then look like this displaying the objects and their properties:
 
-Picture
+![Picture](https://cloud.githubusercontent.com/assets/25128961/23541360/cd7178ba-ff9b-11e6-9ff3-a439f089439b.png)
 
 This is good but we still would like to display the data to the html page so the user can see it. This can be done by making the response equal to a variable then accessing the properties through that variable. This can be shown by this code here for the weather API
-
-Code here.
-
+```markdown
+  var response = JSON.parse(req.responseText);
+     
+  document.getElementById('report').textContent = response.weather["0"].description;
+```
 Here is how it looks when I display it to the page for the user to see:
 
 Picture
 
 Here is the code that would do the same thing but is applied to the Steam Web API:
+```markdown
+var response = JSON.parse(req.responseText);
+     
+document.getElementById('achievementName').textContent = response.achievements["3"].name;
+document.getElementById('achievementPercent').textContent = response.achievements["3"].percent;
+```
 
-Code here
-
-What this code is doing is accessing the achievement object and going through it’s array until we get the achievement wanted.  Then it will display the name of that achievement and the percentage of people who have completed that achievement. 
+What this code is doing is accessing the achievement object and going through it’s array until we get the achievement wanted. After this it is assigning that achievement's properties to an HTML element by that element's ID. Then it will display the name of that achievement and the percentage of people who have completed that achievement to the HTML page. 
 	
 	
 
