@@ -12,7 +12,7 @@ The steam web API offers information either about a specific app, a specific vid
 
 ### Getting Started With Javascript
 	
-	To start the request we must let the javascript know by setting a variable equal to the XML request. After this the request will then be opened. First we notify what type of request we are sending. Since we are only receiving data and not sending this will be a GET request. If we are sending data to the API to receive something back we would then do a POST request. Next we send the domain of the Steam Web API.
+  To start the request we must let the javascript know by setting a variable equal to the XML request. After this the request will then be opened. First we notify what type of request we are sending. Since we are only receiving data and not sending this will be a GET request. If we are sending data to the API to receive something back we would then do a POST request. Next we send the domain of the Steam Web API.
 	
 ### without api key
 
