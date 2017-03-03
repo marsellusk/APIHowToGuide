@@ -102,7 +102,7 @@ JSON.parse(req.responseText)
 
 Here is what happens when I log the response to the console from the asynchronous code above. Unfortunately because Chrome doesn’t like Cross-Origin Requests when there is no server involved I was forced to use Internet Explorer. However Internet Explorer console isn't able to deal with objects and just displays them as undefined. For the purpose of this guide I displayed the results without parsing it which means it will be displayed as HTML code.(Instructor side note: I would have switched to an API that worked but it was too close to the deadline to do so.) The results for showing achievements percentages in the app look like this:
 
-Picture.
+![Picture](https://cloud.githubusercontent.com/assets/25128961/23541487/7875a6aa-ff9c-11e6-94c2-eb4087a3ceb6.png)
 
 In order to show what it should look like in the console I was use the help of a weather API that is the same exact concept except with weather using this code:
 
@@ -116,7 +116,7 @@ var req = new XMLHttpRequest();
 ```
 The result in Chrome console  should then look like this displaying the objects and their properties:
 
-![Picture](https://cloud.githubusercontent.com/assets/25128961/23541360/cd7178ba-ff9b-11e6-9ff3-a439f089439b.png)
+![Picture](https://cloud.githubusercontent.com/assets/25128961/23541620/6d5e05c2-ff9d-11e6-9f73-75f780b000d0.png)
 
 This is good but we still would like to display the data to the html page so the user can see it. This can be done by making the response equal to a variable then accessing the properties through that variable. This can be shown by this code here for the weather API
 ```markdown
@@ -126,7 +126,7 @@ This is good but we still would like to display the data to the html page so the
 ```
 Here is how it looks when I display it to the page for the user to see:
 
-Picture
+![Picture](https://cloud.githubusercontent.com/assets/25128961/23541671/b6cf204c-ff9d-11e6-92c2-c9e584710201.png)
 
 Here is the code that would do the same thing but is applied to the Steam Web API:
 ```markdown
