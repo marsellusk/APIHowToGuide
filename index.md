@@ -12,7 +12,7 @@ The steam web API offers information either about a specific app, a specific vid
 
 ### Introduction to the Guide
 
-The Steam API does a very good job of showing what is neccessary to access their API and the data you will get back by doing so. However, Steam doesn't show how this should look when implementing the API into code. They do provide links to implementations of their API at the bottom of the page, but they can either be confusing or hard to traverse through. This guide will hopefully show how to use the Steam Web API in code. This way you can use it on your own
+The Steam API does a very good job of showing what is necessary to access their API and the data you will get back by doing so. However, Steam doesn't show how this should look when implementing the API into code. They do provide links to implementations of their API at the bottom of the page, but they can either be confusing or hard to traverse through. This guide will hopefully show how to use the Steam Web API in code. This way you can use it on your own
 
 ### Getting Started With Javascript
 	
@@ -131,7 +131,7 @@ The result in Chrome console  should then look like this displaying the objects 
 
 
 
-What is shoown here is all the data I recieved back from the API. It also shows the pathing I took to be able to access the weather description. This is good but we still would like to display the data to the html page so the user can see it. This can be done by making the response equal to a variable then accessing the properties through that variable. This can be shown by this code here for the weather API
+What is shown here is all the data I received back from the API. It also shows the pathing I took to be able to access the weather description. This is good but we still would like to display the data to the html page so the user can see it. This can be done by making the response equal to a variable then accessing the properties through that variable. This can be shown by this code here for the weather API
 ```markdown
   var response = JSON.parse(req.responseText);
      
