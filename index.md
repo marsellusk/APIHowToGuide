@@ -113,7 +113,7 @@ Here is what happens when I log the response to the console from the asynchronou
 
 
 
-In order to show what it should look like in the console I was use the help of a weather API that is the same exact concept except with weather using this code:
+In order to show what it should look like in the console I used the help of a weather API that is the same exact concept except with weather using this code:
 
 ```markdown
 
@@ -131,7 +131,7 @@ The result in Chrome console  should then look like this displaying the objects 
 
 
 
-This is good but we still would like to display the data to the html page so the user can see it. This can be done by making the response equal to a variable then accessing the properties through that variable. This can be shown by this code here for the weather API
+What is shoown here is all the data I recieved back from the API. It also shows the pathing I took to be able to access the weather description. This is good but we still would like to display the data to the html page so the user can see it. This can be done by making the response equal to a variable then accessing the properties through that variable. This can be shown by this code here for the weather API
 ```markdown
   var response = JSON.parse(req.responseText);
      
@@ -159,6 +159,6 @@ What this code is doing is accessing the achievement object and going through it
 
 ### Outro
 
-With this use of the Steam API should be fairly easy. Most APIs function in a similar fasion meaning this logic can be applied to many other APIs out there. Again the Steam API is perfect for use when making a website about specific games and players that play the games. 
+With this use of the Steam API should be fairly easy. Most APIs function in a similar fasion meaning this logic can be applied to many other APIs out there. Again the Steam API is perfect for use when making a website about specific games and players that play the games. Being Able to access the Steam API is the simple part. How you use the data and display it to your HTML page for your user is where stuff should get more complex since that is beyond just using the API. 
 
 
