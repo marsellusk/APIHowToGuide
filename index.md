@@ -131,13 +131,13 @@ The result in Chrome console  should then look like this displaying the objects 
 
 
 
-What is shown here is all the data I received back from the API. It also shows the pathing I took to be able to access the weather description. This is good but we still would like to display the data to the html page so the user can see it. This can be done by making the response equal to a variable then accessing the properties through that variable. This can be shown by this code here for the weather API
+What is shown here is all the data I received back from the API. It also shows the pathing I took to be able to access the weather description. This is good but we still would like to display the data to the html page so the user can see it. This can be done by making the response equal to a variable then accessing the properties through that variable. I display this in this code here for the weather API
 ```markdown
   var response = JSON.parse(req.responseText);
      
   document.getElementById('report').textContent = response.weather["0"].description;
 ```
-Here is how it looks when I display it to the page for the user to see:
+Here is how it looks when I display the above code to the page for the user to see:
 
 
 
