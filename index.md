@@ -11,17 +11,22 @@ The steam web API offers information either about a specific app, a specific vid
 
 -example of the js
 	To start the request we must let the javascript know by setting a variable equal to the XML request. After this the request will then be opened. First we notify what type of request we are sending. Since we are only receiving data and not sending this will be a GET request. If we are sending data to the API to receive something back we would then do a POST request. Next we send the domain of the Steam Web API.
+	
 	-with api
-	Some of the options don’t require an API key. For these we just send the domain of the the Steam API plus the arguments in the query string.. An example of this can be seen by trying to get the achievements for an app:
+
+Some of the options don’t require an API key. For these we just send the domain of the the Steam API plus the arguments in the query string.. An example of this can be seen by trying to get the achievements for an app:
+ 
  http://api.steampowered.com/ISteamUserStats/GetGlobalAchievementPercentagesForApp/v0002/?gameid=440&format=xml
 
-	-without api
+-without api
+
 The others require the API  key to be at the beginning of the query string then the arguments. If you don’t know where to get the Steam API key it can be found here or at the top of the Steam API page.For security reasons you should never give your personal API key as public information. An example of the final domain using player summaries should look like this with the Xs substituted with your personal key:
+
 http://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002/?key=XXXXXXXXXXXXXXXXXXXXXXX&steamids=76561197960435530
 
 It should be noted that different sections of the Steam API use v0001 or v0002 in the link. Pay attention to which one is needed because it can cause errors. The final thing to put in the open request is true or false. True is for asynchronous  request an false is for synchronous request. It is better to use asynchronous request in case there is an error in receiving the data from the Steam API. The final code to produce an output should look like this:
 
-	Code here
+Code here
 
 If there is no error in interacting with the API the code will enter the function and do what you set it to do. In this case I just request it to display the data received in the console. Because we are only receiving data and not sending any to the api req.send() will be set to null. Although asynchronous is better for use sometimes it can cause frustrating errors that are hard to debug. If you run into trouble you can try doing a synchronous request just to make sure you are able to interact with the Steam API. That will look like this:
 
@@ -32,9 +37,9 @@ One last thing to note for the code is that the API key and the query string arg
 
 Example of how to handle the output
 	
-	Now that you know how to make a request we need to be able to deal with the response from the Steam server.this is easily done by using the line of code:
+Now that you know how to make a request we need to be able to deal with the response from the Steam server.this is easily done by using the line of code:
 
-	Code here.
+Code here.
 
 Here is what happens when I log the response to the console from the asynchronous code above. Unfortunately because Chrome doesn’t like Cross-Origin Requests when there is no server involved I was forced to use Internet Explorer. However Internet Explorer console isn't able to deal with objects and just displays them as undefined. For the purpose of this guide I displayed the results without parsing it which means it will be displayed as HTML code.(Instructor side note: I would have switched to an API that worked but it was too close to the deadline to do so.) The results for showing achievements percentages in the app look like this:
 
