@@ -40,7 +40,7 @@ If there is no error in interacting with the API the code will enter the functio
 
 ```markdown
 
-`Code`var req = new XMLHttpRequest();
+`Code var req = new XMLHttpRequest();`
   
 req.open('GET', 'http://api.steampowered.com/ISteamUserStats/GetGlobalAchievementPercentagesForApp/v0002/?gameid=440&format=xml', true);
    
